@@ -13,20 +13,38 @@ Server
 Debian / Ubuntu:
 
     apt-get install git
-    git clone https://github.com/shadowsocksr/shadowsocksr.git
+    ggit clone -b manyuser https://github.com/shadowsocksrr/shadowsocksr.git
 
 CentOS:
 
     yum install git
-    git clone https://github.com/shadowsocksr/shadowsocksr.git
+    git clone -b manyuser https://github.com/shadowsocksrr/shadowsocksr.git
 
 Windows:
 
-    git clone https://github.com/shadowsocksr/shadowsocksr.git
+    git clone -b manyuser https://github.com/shadowsocksrr/shadowsocksr.git
+       
 
 ### Usage for single user on linux platform
 
 If you clone it into "~/shadowsocksr"  
+
+
+安装依赖
+
+
+./setup_cymysql.sh
+
+
+
+
+python server.py
+
+
+
+
+
+
 move to "~/shadowsocksr", then run:
 
     bash initcfg.sh
@@ -36,6 +54,26 @@ move to "~/shadowsocksr/shadowsocks", then run:
     python server.py -p 443 -k password -m aes-128-cfb -O auth_aes128_md5 -o tls1.2_ticket_auth_compatible
 
 Check all the options via `-h`.
+
+
+
+修改userapiconfig.py的接口为glzjinmod
+
+
+
+vi userapiconfig.py
+
+修改user-config.json，将connect_verbose_info的值改为1，另外根据自己的需要修改相关的加密方式、混淆、协议等等。
+
+
+vi user-config.json
+
+修改usermysql.json，将数据库信息改为你自己的，另外记得修改node_id的值为面版id：
+
+
+测试
+
+
 
 You can also use a configuration file instead (recommend), move to "~/shadowsocksr" and edit the file "user-config.json", then move to "~/shadowsocksr/shadowsocks" again, just run:
 
